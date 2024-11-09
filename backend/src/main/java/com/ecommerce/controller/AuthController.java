@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.config.JwtProvider;
 import com.ecommerce.exception.UserException;
+import com.ecommerce.model.Cart;
 import com.ecommerce.model.User;
 import com.ecommerce.repository.UserRepository;
 import com.ecommerce.requests.LoginRequest;
 import com.ecommerce.response.AuthResponse;
+import com.ecommerce.service.CartService;
 import com.ecommerce.service.CustomUserServiceImplementation;
 
 import org.springframework.security.authentication.BadCredentialsException;
@@ -35,6 +37,8 @@ public class AuthController {
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private CustomUserServiceImplementation customUserService;
+	@Autowired
+	private CartService cartService;
 	
 	
 	@PostMapping("/signup")
@@ -59,6 +63,8 @@ public class AuthController {
 		createdUser.setLastName(lastName);
 		
 		User savedUser = userRepository.save(createdUser);
+		
+		Cart cart = cartService.createCart(savedUser);
 		
 		
 		Authentication authentication = new UsernamePasswordAuthenticationToken(savedUser.getEmail(), savedUser.getPassword());
