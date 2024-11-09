@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ecommerce.exception.ProductException;
 import com.ecommerce.model.Product;
@@ -11,7 +12,7 @@ import com.ecommerce.model.Rating;
 import com.ecommerce.model.User;
 import com.ecommerce.repository.RatingRepository;
 import com.ecommerce.requests.RatingRequest;
-
+@Service
 public class RatingServiceImplementation implements RatingService {
 	
 	@Autowired

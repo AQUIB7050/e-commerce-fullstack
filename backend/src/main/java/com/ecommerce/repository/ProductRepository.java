@@ -24,7 +24,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 		                                     @Param("sort") String sort);
 	
 	
-
+	@Query("SELECT p FROM Product p")
+	public List<Product> findAllProduct();
 
 
 }

@@ -17,7 +17,7 @@ import com.ecommerce.model.Product;
 import com.ecommerce.service.ProductService;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api")
 public class ProductController {
 	
 	@Autowired
