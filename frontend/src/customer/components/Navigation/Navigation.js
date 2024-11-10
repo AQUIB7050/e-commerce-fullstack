@@ -17,7 +17,10 @@ import { deepPurple } from "@mui/material/colors";
 //import { getUser, logout } from "../../../Redux/Auth/Action";
 //import { getCart } from "../../../Redux/Customers/Cart/Action";
 import TextField from "@mui/material/TextField";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import AuthModel from "../../auth/AuthModel";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../../State/Auth/Action";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -26,20 +29,29 @@ function classNames(...classes) {
 export default function Navigation() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  //const dispatch = useDispatch();
-  //const { auth, cart } = useSelector((store) => store);
+  const dispatch = useDispatch();
+  const { auth, cart } = useSelector((store) => store);
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
   const jwt = localStorage.getItem("jwt");
-  //const location = useLocation();
+  const location = useLocation();
 
-  // useEffect(() => {
-  //   if (jwt) {
-  //     dispatch(getUser(jwt));
-  //     dispatch(getCart(jwt));
-  //   }
-  // }, [jwt]);
+  useEffect(() => {
+    if (jwt) {
+      dispatch(getUser(jwt));
+      //dispatch(getCart(jwt));
+    }
+  }, [jwt, auth.jwt]);
+
+  useEffect(() => {
+    if (auth.user) {
+      handleClose();
+    }
+    if (location.pathname === "/login" || location.pathname === "/register") {
+      navigate(-1);
+    }
+  }, [auth.user]);
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -60,14 +72,7 @@ export default function Navigation() {
     close();
   };
 
-  // useEffect(() => {
-  //   if (auth.user) {
-  //     handleClose();
-  //   }
-  //   if (location.pathname === "/login" || location.pathname === "/register") {
-  //     navigate(-1);
-  //   }
-  // }, [auth.user]);
+  
 
   // const handleLogout = () => {
   //   handleCloseUserMenu();
@@ -411,7 +416,7 @@ export default function Navigation() {
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   {/* {auth.user  */}
-                   { true ? (
+                   { auth.user?.firstName ? (
                     <div>
                       <Avatar
                         className="text-white"
@@ -426,7 +431,7 @@ export default function Navigation() {
                           cursor: "pointer",
                         }}
                       >
-                        {/* {auth.user?.firstName[0].toUpperCase()} */}
+                        {auth.user?.firstName[0].toUpperCase()}
                       </Avatar>
                       {/* <Button
                         id="basic-button"
@@ -507,7 +512,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
-      {/* <AuthModal handleClose={handleClose} open={openAuthModal} /> */}
+      <AuthModel handleClose={handleClose} open={openAuthModal} />
     </div>
   );
 }
