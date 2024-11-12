@@ -7,13 +7,13 @@ const registerRequest = () => ({type:REGISTER_REQUEST});
 const registerSuccess = (user) => ({type:REGISTER_SUCCESS,payload:user});
 const registerFailue = (error) => ({type:REGISTER_FAILURE,payload:error});
 
-export const register = userData => async (dispatch) => {
+export const register = (userData) => async (dispatch) => {
     dispatch(registerRequest());
     try{
         const response = await axios.post(`${API_BASE_URL}/auth/signup`, userData);
         const user = response.data;
         if(user.jwt){
-            localStorage.setIten("jwt", user.jwt);
+            localStorage.setItem("jwt", user.jwt);
         }
         console.log("user", user);
 
@@ -33,7 +33,7 @@ export const login = userData => async (dispatch) => {
         const response = await axios.post(`${API_BASE_URL}/auth/signin`, userData);
         const user = response.data;
         if(user.jwt){
-            localStorage.setIten("jwt", user.jwt);
+            localStorage.setItem("jwt", user.jwt);
         }
         console.log("user", user);
 
@@ -68,4 +68,5 @@ export const getUser = (jwt) => async (dispatch) => {
 
 export const logout= () => (dispatch) => {
     dispatch({type:LOGOUT, payload:null});
+    localStorage.clear();
 }

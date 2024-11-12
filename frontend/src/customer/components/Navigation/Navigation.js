@@ -14,13 +14,13 @@ import { navigation } from "./NavigationData";
 //import AuthModal from "../Auth/AuthModal";
 //import { useDispatch, useSelector } from "react-redux";
 import { deepPurple } from "@mui/material/colors";
-//import { getUser, logout } from "../../../Redux/Auth/Action";
+// import { getUser, logout } from "../../../Redux/Auth/Action";
 //import { getCart } from "../../../Redux/Customers/Cart/Action";
 import TextField from "@mui/material/TextField";
 import { useLocation, useNavigate } from "react-router-dom";
 import AuthModel from "../../auth/AuthModel";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../../State/Auth/Action";
+import { getUser, logout } from "../../../State/Auth/Action";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -74,10 +74,11 @@ export default function Navigation() {
 
   
 
-  // const handleLogout = () => {
-  //   handleCloseUserMenu();
-  //   dispatch(logout());
-  // };
+  const handleLogout = () => {
+    handleCloseUserMenu();
+    dispatch(logout());
+  };
+  
   const handleMyOrderClick = () => {
     handleCloseUserMenu();
     // auth.user?.role === "ROLE_ADMIN"
@@ -459,13 +460,13 @@ export default function Navigation() {
                         My Orders
                         </MenuItem>
 
-                        <MenuItem>Logout</MenuItem>
+                        {/* <MenuItem>Logout</MenuItem> */}
                         {/* <MenuItem onClick={handleMyOrderClick}>
                           {auth.user?.role === "ROLE_ADMIN"
                             ? "Admin Dashboard"
                             : "My Orders"}
                         </MenuItem> */}
-                        {/* <MenuItem onClick={handleLogout}>Logout</MenuItem> */}
+                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
                       </Menu>
                     </div>
                   ) : (
