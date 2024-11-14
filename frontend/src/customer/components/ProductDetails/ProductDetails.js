@@ -21,14 +21,17 @@
 */
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { Radio, RadioGroup } from '@headlessui/react'
 import { Box, Button, Grid2, LinearProgress, Rating } from '@mui/material'
-import ProductReviewCard from './ProductReviewCard'
+
 import { mens_kurta } from '../../../data/mens_kurta'
 import HomeSectionCard from '../HomeSectionCard/HomeSectionCard'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import ProductReviewCard from './ProductReviewCard'
+import { useDispatch, useSelector } from 'react-redux'
+import { findProductsById } from '../../../State/Product/Action'
 
 const product = {
   name: 'Basic Tee 6-Pack',
@@ -85,13 +88,20 @@ function classNames(...classes) {
 }
 
 export default function ProductDetails() {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0])
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2])
+  const [selectedSize, setSelectedSize] = useState("");
   const navigate = useNavigate();
+  const params = useParams();
+  const dispatch = useDispatch();
+  const {products} = useSelector(store=>store);
+  
 
   const handleAddToCart = () => {
     navigate("/cart");
   }
+
+  useEffect(()=>{
+    dispatch(findProductsById(params.productId))
+  },[params.productId]);
 
   return (
     <div className="bg-white lg:px-20">
@@ -132,7 +142,7 @@ export default function ProductDetails() {
           <div className="overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]">
             <img
               alt={product.images[0].alt}
-              src={product.images[0].src}
+              src={products.product?.imageUrl}
               className="h-full w-full object-cover object-center"
             />
           </div>
