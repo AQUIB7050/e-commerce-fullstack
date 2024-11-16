@@ -2,8 +2,11 @@ import { Box, Button, Grid2, TextField } from "@mui/material";
 import AddressCard from "../AddressCard/AddressCard";
 import { useDispatch } from "react-redux";
 import { createOrder } from "../../../State/Order/Action";
+import { useNavigate } from "react-router-dom";
 
 const DeliveryAddressForm = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +23,9 @@ const DeliveryAddressForm = () => {
             mobile:data.get("phone")
 
         }
+
+        const orderData = {address, navigate}
+        dispatch(createOrder(orderData));
 
     }
 
