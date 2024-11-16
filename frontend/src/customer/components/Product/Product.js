@@ -55,7 +55,7 @@ export default function Product() {
   const stock = searchParams.get("stock");
 
 
-  const handlePaginationChange = (evemt,value) => {
+  const handlePaginationChange = (event,value) => {
     const searchParams = new URLSearchParams(location.search);
     searchParams.set("page", value);
     const query = searchParams.toString();
