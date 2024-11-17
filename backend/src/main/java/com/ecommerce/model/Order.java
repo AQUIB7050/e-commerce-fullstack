@@ -3,6 +3,8 @@ package com.ecommerce.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -115,7 +117,7 @@ public class Order {
 	}
 
 	public PaymentDetails getPaymentDetails() {
-		return paymentDetails;
+		return new PaymentDetails();
 	}
 
 	public void setPaymentDetails(PaymentDetails paymentDetails) {

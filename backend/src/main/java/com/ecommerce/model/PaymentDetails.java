@@ -1,5 +1,9 @@
 package com.ecommerce.model;
 
+
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class PaymentDetails {
 	
 	private String paymentMethod;

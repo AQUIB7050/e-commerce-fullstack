@@ -5,17 +5,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getOrderById } from "../../../State/Order/Action";
 import { useLocation } from "react-router-dom";
+import { createPayment } from "../../../State/Payment/Action";
 
 const OrderSummary = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const orderId = searchParams.get("order_id");
+  const orderId = searchParams.get("orderid");
   const {order} = useSelector(store=>store);
 
   useEffect(()=>{
     dispatch(getOrderById(orderId));
   },[orderId]);
+
+  const handleCheckout = () => {
+    dispatch(createPayment(orderId));
+  }
 
   return (
     <div>
@@ -62,6 +67,7 @@ const OrderSummary = () => {
                 variant="contained"
                 className="w-full mt-5"
                 sx={{ px: "2.5rem", py: ".7rem", bgcolor: "#9155fd" }}
+                onClick={handleCheckout}
               >
                 Checkout
               </Button>
