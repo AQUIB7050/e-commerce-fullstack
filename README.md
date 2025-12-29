@@ -45,12 +45,14 @@ The project follows a clean separation of concerns with RESTful APIs, scalable a
 
 ## 📁 Project Structure
 
+```text
 e-commerce-fullstack/
-├── backend/ # Spring Boot backend
-├── frontend/ # React frontend
+├── backend/        # Spring Boot backend
+├── frontend/       # React frontend
 ├── .gitignore
 ├── README.md
 
+```
 ---
 
 ## 🚀 Getting Started
