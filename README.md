@@ -154,5 +154,11 @@ GitHub Pages
 If you find this project helpful, please consider giving it a star ⭐ on GitHub.
 
 ## 👤 Author
-### Aquib Ahmed Ansari
-### Software Developer
+
+**Aquib Ahmed Ansari**  
+
+🌐 [Portfolio](https://my-portfolio-nu-sable-23.vercel.app/)
+
+💼 [LinkedIn](https://www.linkedin.com/in/aquib-ahmed-7050/)
+
+🔗 [GitHub](https://github.com/AQUIB7050)  
