@@ -64,13 +64,10 @@ git clone https://github.com/AQUIB7050/e-commerce-fullstack.git
 cd e-commerce-fullstack
 ```
 
-⚙️ Backend Setup
-Prerequisites
-Java 17+
 
-Maven
+🗄 Database
 
-Database (MySQL / PostgreSQL / H2)
+MySQL / PostgreSQL / H2 (configurable)
 
 Run Backend
 bash
@@ -80,66 +77,87 @@ mvn clean install
 mvn spring-boot:run
 Backend runs on:
 
-arduino
-Copy code
-http://localhost:8080
+⚙️ Backend Setup
+Prerequisites
+
+Java 17+
+
+Maven
+
+Database (MySQL / PostgreSQL / H2)
+
+Run Backend
+```
+cd backend
+mvn clean install
+mvn spring-boot:run
+```
+
+Backend runs on:
+``` http://localhost:8080 ```
+
 Database Configuration
+
 Update application.properties:
 
-properties
-Copy code
-spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_db
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/database_name
 spring.datasource.username=your_username
 spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
+```
 
 🎨 Frontend Setup
 Prerequisites
+
 Node.js
 
 npm
 
 Run Frontend
-bash
-Copy code
+```
 cd frontend
 npm install
 npm start
-Frontend runs on:
+```
 
-arduino
-Copy code
-http://localhost:3000
+Frontend runs on:
+``` http://localhost:3000 ```
+
 🔌 API Overview (Sample)
-Method	Endpoint	Description
-GET	/api/products	Fetch all products
-GET	/api/products/{id}	Product details
-POST	/api/auth/register	User registration
-POST	/api/auth/login	User login
-POST	/api/orders	Place order
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/products | Fetch all products |
+| GET | /api/products/{id} | Product details |
+| POST | /api/auth/register | User registration |
+| POST | /api/auth/login | User login |
+| POST | /api/orders | Place order |
+
 
 🧪 Testing
-Backend
-bash
-Copy code
-mvn test
-Frontend
-bash
-Copy code
-npm test
+Backend Tests
+
+``` mvn test ```
+
+Frontend Tests
+``` npm test ```
+
 📦 Deployment
-Backend: AWS EC2 / Heroku / Render
+Backend
 
-Frontend: Vercel / Netlify / GitHub Pages
+AWS EC2
 
-🤝 Contributing
-Fork the repository
+Heroku
 
-Create a new branch
+Render
 
-Commit your changes
+Frontend
 
-Open a Pull Request
+Vercel
+
+Netlify
+
+GitHub Pages
 
 ⭐ Support
 If you find this project helpful, please consider giving it a star ⭐ on GitHub.
