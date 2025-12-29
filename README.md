@@ -65,20 +65,10 @@ cd e-commerce-fullstack
 ```
 
 
-🗄 Database
 
-MySQL / PostgreSQL / H2 (configurable)
+## ⚙️ Backend Setup
 
-Run Backend
-bash
-Copy code
-cd backend
-mvn clean install
-mvn spring-boot:run
-Backend runs on:
-
-⚙️ Backend Setup
-Prerequisites
+### Prerequisites
 
 Java 17+
 
@@ -96,7 +86,7 @@ mvn spring-boot:run
 Backend runs on:
 ``` http://localhost:8080 ```
 
-Database Configuration
+### Database Configuration
 
 Update application.properties:
 
@@ -107,8 +97,9 @@ spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
 ```
 
-🎨 Frontend Setup
-Prerequisites
+## 🎨 Frontend Setup
+
+### Prerequisites
 
 Node.js
 
@@ -142,8 +133,8 @@ Backend Tests
 Frontend Tests
 ``` npm test ```
 
-📦 Deployment
-Backend
+## 📦 Deployment
+### Backend
 
 AWS EC2
 
@@ -151,7 +142,7 @@ Heroku
 
 Render
 
-Frontend
+### Frontend
 
 Vercel
 
@@ -159,9 +150,9 @@ Netlify
 
 GitHub Pages
 
-⭐ Support
+## ⭐ Support
 If you find this project helpful, please consider giving it a star ⭐ on GitHub.
 
-👤 Author
-Aquib Ahmed Ansari
-Software Developer
+## 👤 Author
+### Aquib Ahmed Ansari
+### Software Developer
