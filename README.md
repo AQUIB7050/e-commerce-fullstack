@@ -51,9 +51,6 @@ e-commerce-fullstack/
 ├── .gitignore
 ├── README.md
 
-yaml
-Copy code
-
 ---
 
 ## 🚀 Getting Started
