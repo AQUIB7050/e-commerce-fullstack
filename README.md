@@ -70,13 +70,11 @@ cd e-commerce-fullstack
 
 ### Prerequisites
 
-Java 17+
+- Java 17+
+- Maven
+- Database (MySQL / PostgreSQL / H2)
 
-Maven
-
-Database (MySQL / PostgreSQL / H2)
-
-Run Backend
+### Run Backend
 ```
 cd backend
 mvn clean install
@@ -100,19 +98,17 @@ spring.jpa.hibernate.ddl-auto=update
 ## 🎨 Frontend Setup
 
 ### Prerequisites
+- Node.js
+- npm
 
-Node.js
-
-npm
-
-Run Frontend
+### Run Frontend
 ```
 cd frontend
 npm install
 npm start
 ```
 
-Frontend runs on:
+### Frontend runs on:
 ``` http://localhost:3000 ```
 
 🔌 API Overview (Sample)
@@ -136,29 +132,25 @@ Frontend Tests
 ## 📦 Deployment
 ### Backend
 
-AWS EC2
-
-Heroku
-
-Render
+- AWS EC2
+- Heroku
+- Render
 
 ### Frontend
 
-Vercel
-
-Netlify
-
-GitHub Pages
+- Vercel
+- Netlify
+- GitHub Pages
 
 ## ⭐ Support
-If you find this project helpful, please consider giving it a star ⭐ on GitHub.
+- If you find this project helpful, please consider giving it a star ⭐ on GitHub.
 
 ## 👤 Author
 
 **Aquib Ahmed Ansari**  
 
-🌐 [Portfolio](https://my-portfolio-nu-sable-23.vercel.app/)
+- 🌐 [Portfolio](https://my-portfolio-nu-sable-23.vercel.app/)
 
-💼 [LinkedIn](https://www.linkedin.com/in/aquib-ahmed-7050/)
+- 💼 [LinkedIn](https://www.linkedin.com/in/aquib-ahmed-7050/)
 
-🔗 [GitHub](https://github.com/AQUIB7050)  
+- 🔗 [GitHub](https://github.com/AQUIB7050)  
